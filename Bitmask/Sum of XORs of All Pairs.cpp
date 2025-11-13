@@ -3,6 +3,10 @@
 // In this vertical array, all 0s and 1s are from diff diff elements of the Main array 
 // (in this problem, they are from the XORs)
 
+// For AND --> contribution = cnt1^2
+// For OR --> contribution = cnt1 * n + cnt0 * cnt1 
+// Need not to worry about the reverse pair (already counted)
+
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -13,16 +17,17 @@ void solve() {
     for(int i = 1; i <= n; i++) {
         cin >> a[i];
     }
-    vector<int> freq(31, 0); 
+    // For counting the number of set bits at each position
+    vector<int> cnt(31, 0); 
     for(int i = 1; i <= n; i++) {
         for(int j = 0; j <= 30; j++) {
-            if((a[i] >> j) & 1) freq[j]++;
+            if((a[i] >> j) & 1) cnt[j]++;
         }
 
     }    
     int ans = 0;
     for(int j = 0; j <= 30; j++) {
-        int contrib = 2 * (freq[j] * (n - freq[j]));
+        int contrib = 2 * (cnt[j] * (n - cnt[j]));
         ans += contrib * (1 << j);
     }
     cout << ans << '\n';
