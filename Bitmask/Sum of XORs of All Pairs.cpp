@@ -1,7 +1,6 @@
 // First think about binary array (just some 0s and 1s)
 // then consider the binary array at each position (Bitwise pos) like a "Vertical Array"
 // In this vertical array, all 0s and 1s are from diff diff elements of the Main array 
-// (in this problem, they are from the XORs)
 
 // For AND --> contribution = cnt1^2
 // For OR --> contribution = cnt1 * n + cnt0 * cnt1 
