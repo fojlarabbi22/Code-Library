@@ -2,11 +2,15 @@
 using namespace std;
 #define ll long long
 
-ll power(int x, ll n, ll mod) { // O(log n)
+int power(int x, ll n, int mod) { // O(log n)
     if(n == 0) return 1 % mod;
     ll cur = power(x, n/2, mod);
-    if(n % 2 == 0) return cur * cur % mod;
-    else return cur * cur % mod * x % mod;
+    if(n % 2 == 0) {
+        return 1LL * cur * cur % mod;
+    }
+    else {
+        return 1LL * cur * cur % mod * x % mod;
+    }
 }
 
 int main() {
