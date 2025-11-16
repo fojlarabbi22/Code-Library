@@ -2,20 +2,20 @@
 using namespace std;
 #define ll long long
 
-int power(int x, ll n, int mod) { // O(log n)
-    if(n == 0) return 1 % mod;
-    ll cur = power(x, n/2, mod);
+int binpow(int a, ll n, int m) { // O(log n)
+    if(n == 0) return 1 % m;
+    ll cur = binpow(a, n/2, m);
     if(n % 2 == 0) {
-        return 1LL * cur * cur % mod;
+        return cur * cur % m;
     }
     else {
-        return 1LL * cur * cur % mod * x % mod;
+        return cur * cur % m * a % m;
     }
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << power(1e8 + 9, 1e18, 1e9 + 7);
+    cout << binpow(1e8 + 9, 1e18, 1e9 + 7);
     return 0;
 }
