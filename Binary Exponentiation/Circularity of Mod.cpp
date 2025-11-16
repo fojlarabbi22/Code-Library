@@ -5,14 +5,14 @@
 using namespace std;
 #define ll long long
 
-int power(int x, int n, int mod) {
-    int cur = 1 % mod;
+int power(int a, int n, int m) {
+    int cur = 1 % m;
     vector<int> v;
-    v.push_back(1); // Pos 0, value 1, x^0
-    vector<bool> vis(mod, false);
+    v.push_back(1); // Pos 0, value 1, a^0
+    vector<bool> vis(m, false);
     int start = 0;
     while(true) {
-        cur = cur * x % mod;
+        cur = cur * a % m;
         if(!vis[cur]) {
             vis[cur] = true;
             v.push_back(cur);
